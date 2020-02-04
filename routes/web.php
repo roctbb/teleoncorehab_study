@@ -55,6 +55,7 @@ Route::prefix('insider')->middleware(['auth', 'accepted'])->group(function () {
     Route::post('/courses/{id}/edit', 'CoursesController@edit');
     Route::get('/courses/{id}/assessments', 'CoursesController@assessments');
     Route::get('/courses/{id}/export', 'CoursesController@export');
+    Route::get('/courses/{id}/enroll', 'CoursesController@enroll');
 
 
     Route::get('/courses/{id}/create', 'LessonsController@createView');
@@ -93,74 +94,18 @@ Route::prefix('insider')->middleware(['auth', 'accepted'])->group(function () {
     Route::get('/tasks/{id}/phantom', 'TasksController@phantomSolution');
     Route::get('/tasks/{id}/student/{student_id}', 'TasksController@reviewSolutions');
     Route::post('/solution/{id}', 'TasksController@estimateSolution');
-    Route::get('/invite', 'CoursesController@invite');
 
-    Route::get('/community', 'ProfileController@index');
-    Route::get('/profile/{id?}', 'ProfileController@details');
-
-
-    Route::get('/profile/{id}/edit', 'ProfileController@editView');
-    Route::post('/profile/{id}/edit', 'ProfileController@edit');
-    Route::post('/profile/{id}/course', 'ProfileController@course');
-    Route::get('/profile/delete-course/{id}', 'ProfileController@deleteCourse');
-
-    Route::get('/projects/create', 'ProjectsController@createView');
-    Route::post('/projects/create', 'ProjectsController@create');
-    Route::get('/projects/{id}', 'ProjectsController@details');
-    Route::post('/project/{id}/edit', 'ProjectsController@edit');
-
-    Route::get('/projects/{id}/edit', 'ProjectsController@editView');
-    Route::post('/projects/{id}/edit', 'ProjectsController@edit');
-    Route::get('/projects/{id}/delete', 'ProjectsController@deleteProject');
-    Route::get('/projects', 'ProjectsController@index');
-
-    Route::get('/events', 'EventController@event_view');
-    Route::get('/events/old', 'EventController@old_events_view');
-    Route::get('/events/add_event', 'EventController@add_event_view');
-    Route::post('/events/add_event', 'EventController@add_event');
-    Route::get('/events/{id}', 'EventController@current_event');
-    Route::get('/events/{id}/go', 'EventController@go_event');
-    Route::get('/events/{id}/left', 'EventController@left_event');
-    Route::get('/events/{id}/like', 'EventController@like_event');
-    Route::get('/events/{id}/like_from_events', 'EventController@like_event_from_events');
-    Route::get('/events/{id}/dislike', 'EventController@dislike_event');
-    Route::get('/events/{id}/dislike_from_events', 'EventController@dislike_event_from_events');
-    Route::get('/events/{id}/add_org', 'EventController@add_org');
-    Route::post('/events', 'EventController@event_view');
-    Route::post('/events/old', 'EventController@old_events_view');
-    Route::get('/events/{id}/edit', 'EventController@edit_event_view');
-    Route::post('/events/{id}/edit', 'EventController@edit_event');
-    Route::get('/events/{id}/delete', 'EventController@del_event');
-    Route::get('/events/{id}/delete_comm/{id2}', 'EventController@del_comment');
-
-    Route::post('/events/{id}', 'EventController@add_comment');
+    Route::get('/requests', 'RequestsController@index');
+    Route::get('/profile/{id?}', 'RequestsController@details');
 
 
-    Route::get('/testmail', function () {
-        $user = \App\User::findOrFail(1);
-        $when = \Carbon\Carbon::now()->addSeconds(1);
-        $user->notify((new \App\Notifications\NewSolution())->delay($when));
-    });
+    Route::get('/profile/{id}/edit', 'RequestsController@editView');
+    Route::post('/profile/{id}/edit', 'RequestsController@edit');
+    Route::post('/profile/{id}/course', 'RequestsController@course');
+    Route::get('/profile/{id}/accept', 'RequestsController@accept');
+    Route::get('/profile/{id}/decline', 'RequestsController@decline');
+    Route::get('/profile/{user_id}/download/{name}', 'RequestsController@download');
 
-    Route::get('/migrate_to_lessons', function () {
-        $courses = \App\Course::all();
-        foreach ($courses as $course)
-        {
-            foreach ($course->steps as $step)
-            {
-                $lesson = new \App\Lesson();
-                $lesson->name = $step->name;
-                $lesson->start_date = $step->start_date;
-                $lesson->description = $step->description;
-                $lesson->course_id = $step->course_id;
-                $lesson->save();
-
-                $step->lesson_id = $lesson->id;
-                $step->save();
-            }
-        }
-
-    });
 
 });
 

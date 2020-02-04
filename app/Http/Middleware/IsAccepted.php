@@ -17,6 +17,11 @@ class IsAccepted
      */
     public function handle($request, Closure $next, $guard = null)
     {
+
+        if (Auth::User()->role=='teacher') {
+            return $next($request);
+        }
+
         if (Auth::User()->state=='pending') {
             return redirect('/insider/pending');
         }

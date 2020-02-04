@@ -29,11 +29,17 @@ class CoursesController extends Controller
 
     public function pending()
     {
+        $user = Auth::User();
+        if ($user->state == 'accepted')
+            return redirect('/');
         return view('pending');
     }
 
     public function declined()
     {
+        $user = Auth::User();
+        if ($user->state == 'accepted')
+            return redirect('/');
         return view('declined');
     }
 
@@ -46,8 +52,7 @@ class CoursesController extends Controller
     {
         $user = User::findOrFail(Auth::User()->id);
         $courses = Course::orderBy('id')->get();
-        $providers = Provider::orderBy('id')->get();
-        return view('home', compact('courses', 'user', 'providers'));
+        return view('home', compact('courses', 'user'));
     }
 
     public function details($id)

@@ -68,13 +68,20 @@ class RegisterController extends Controller
             'internship_year' => 'required|numeric|min:1930|max:'.Carbon::now()->year,
             'postgraduate_name' => 'required|string|max:512',
             'postgraduate_year' => 'required|numeric|min:1930|max:'.Carbon::now()->year,
-            'courses' => 'nullable|string|max:2048',
+            'courses_history' => 'nullable|string|max:2048',
             'certificate_number' => 'required|string|max:100',
             'certificate_specialty' => 'required|string|max:100',
             'certificate_year' => 'required|numeric|min:1930|max:'.Carbon::now()->year,
             'job_title' => 'required|string|max:100',
             'job_place' => 'required|string|max:2048',
             'job_years' => 'required|numeric|min:0',
+            'diploma_file' => 'required|file|max:10000',
+            'surname_file' => 'nullable|file|max:10000',
+            'postgraduate_file' => 'required|file|max:10000',
+            'certificate_file' => 'required|file|max:10000',
+            'snils_file' => 'required|file|max:10000',
+            'passport_file' => 'required|file|max:10000',
+            'request_file' => 'required|file|max:10000',
         ]);
     }
 
@@ -106,7 +113,7 @@ class RegisterController extends Controller
         $user->internship_year = $data->internship_year;
         $user->postgraduate_name = $data->postgraduate_name;
         $user->postgraduate_year = $data->postgraduate_year;
-        $user->courses = $data->courses;
+        $user->courses_history = $data->courses_history;
         $user->certificate_number = $data->certificate_number;
         $user->certificate_year = $data->certificate_year;
         $user->certificate_specialty = $data->certificate_specialty;
@@ -115,13 +122,45 @@ class RegisterController extends Controller
         $user->job_years = $data->job_years;
         $user->state = 'pending';
 
+        $user->save();
 
-        /*if ($data->hasFile('image'))
+        # diploma
+        $fileName = "diploma".time().'.'.$data->diploma_file->getClientOriginalExtension();
+        $path = $data->diploma_file->storeAs('documents/'.$user->id.'/', $fileName);
+        $user->diploma_file = $fileName;
+
+        # surname
+        if ($data->hasFile('surname_file'))
         {
-            $extn = '.'.$data->file('image')->guessClientExtension();
-            $path = $data->file('image')->storeAs('user_avatars', $user->id.$extn);
-            $user->image = $path;
-        }*/
+            $fileName = "surname".time().'.'.$data->surname_file->getClientOriginalExtension();
+            $path = $data->surname_file->storeAs('documents/'.$user->id.'/', $fileName);
+            $user->surname_file = $fileName;
+        }
+
+        # postgraduate_file
+        $fileName = "postgraduate".time().'.'.$data->postgraduate_file->getClientOriginalExtension();
+        $path = $data->postgraduate_file->storeAs('documents/'.$user->id.'/', $fileName);
+        $user->postgraduate_file = $fileName;
+
+        # certificate_file
+        $fileName = "certificate".time().'.'.$data->certificate_file->getClientOriginalExtension();
+        $path = $data->certificate_file->storeAs('documents/'.$user->id.'/', $fileName);
+        $user->certificate_file = $fileName;
+
+        # snils_file
+        $fileName = "snils".time().'.'.$data->snils_file->getClientOriginalExtension();
+        $path = $data->snils_file->storeAs('documents/'.$user->id.'/', $fileName);
+        $user->snils_file = $fileName;
+
+        # snils_file
+        $fileName = "passport".time().'.'.$data->passport_file->getClientOriginalExtension();
+        $path = $data->passport_file->storeAs('documents/'.$user->id.'/', $fileName);
+        $user->passport_file = $fileName;
+
+        # request_file
+        $fileName = "request".time().'.'.$data->request_file->getClientOriginalExtension();
+        $path = $data->request_file->storeAs('documents/'.$user->id.'/', $fileName);
+        $user->request_file = $fileName;
 
         $user->save();
         return $user;

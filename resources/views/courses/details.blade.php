@@ -41,7 +41,8 @@
         @endif
     </div>
     <div class="row">
-        <div class="col-md-8">
+
+        <div class="@if ($user->role=='teacher')col-md-8"@else col @endif">
             
       
 
@@ -49,7 +50,7 @@
             @foreach($lessons as $key => $lesson)
                 @if ($lesson->steps->count()!=0)
                     <div class="card-group">
-                        <div class="card">
+                        <div class="card" style="width: 100%;">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
@@ -79,12 +80,6 @@
                                     <div class="col">
                                         @parsedown($lesson->description)
                                     </div>
-                                    @if ($user->role=='teacher' || $lesson->percent($cstudent) > 90)
-                                        <div class="col-sm-auto">
-                                            <img src="{{url($lesson->sticker)}}" style="max-width: 200px;"/>
-                                        </div>
-                                    @endif
-
 
                                 </div>
 
@@ -206,10 +201,11 @@
                 @endif
             @endforeach
         </div>
+        @if ($user->role=='teacher')
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Информация <img src="https://png.icons8.com/info/color/30/000000"></h4>
+                    <h4 class="card-title">Информация</h4>
                     <p>
                         @if ($user->role=='teacher')
                             <b>Статус:</b> {{$course->state}}<br/>
@@ -256,78 +252,8 @@
 
                 </div>
             </div>
-            @if ($user->role=='student')
-                <div class="card" style="margin-top: 15px;">
-                    <div class="card-body">
-
-                        <h4 class="card-title">Оценки <img src="https://png.icons8.com/medal/color/30/000000">
-                            <small class="float-right"><span class="badge badge-primary">{{$cstudent->points}}
-                                    / {{$cstudent->max_points}}</span></small>
-                        </h4>
-                        <div class="progress" style="margin-bottom: 15px;">
-                            @if ($cstudent->percent < 40)
-                                <div class="progress-bar progress-bar-striped bg-danger" role="progressbar"
-                                     style="height: 2px;width: {{$cstudent->percent}}%"
-                                     aria-valuenow="{{$cstudent->percent}}" aria-valuemin="0"
-                                     aria-valuemax="100"></div>
-
-                            @elseif($cstudent->percent < 60)
-                                <div class="progress-bar progress-bar-striped bg-warning" role="progressbar"
-                                     style="height: 2px;width: {{$cstudent->percent}}%"
-                                     aria-valuenow="{{$cstudent->percent}}" aria-valuemin="0"
-                                     aria-valuemax="100"></div>
-
-                            @else
-                                <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
-                                     style="height: 2px;width: {{$cstudent->percent}}%"
-                                     aria-valuenow="{{$cstudent->percent}}" aria-valuemin="0"
-                                     aria-valuemax="100"></div>
-
-                            @endif
-                        </div>
-                        <table class="table">
-                            @foreach($steps as $step)
-                                @php
-                                    if ($cstudent->pivot->is_remote)
-                                    {
-                                    $tasks = $step->remote_tasks;
-                                    }
-                                    else {
-                                    $tasks = $step->class_tasks;
-                                    }
-                                @endphp
-                                @foreach($tasks as $task)
-                                    @php
-                                        $filtered = $task->solutions->filter(function ($value) use ($user) {
-                                            return $value->user_id == $user->id && !$value->is_quiz;
-                                        });
-                                        $mark = $filtered->max('mark');
-                                        $mark = $mark == null?0:$mark;
-                                        $should_check = false;
-                                        if (count($filtered)!=0 && $filtered->last()->mark==null) $should_check=true;
-
-                                    @endphp
-                                    <tr>
-                                        <td>
-                                            <a href="{{url('/insider/steps/'.$task->step_id.'#task'.$task->id)}}">{{$task->name}}</a>
-                                        </td>
-
-                                        @if ($should_check)
-                                            <td><span class="badge badge-warning">{{$mark}}</span></td>
-                                        @elseif ($mark == 0)
-                                            <td><span class="badge badge-light">{{$mark}}</span></td>
-                                        @else
-                                            <td><span class="badge badge-primary">{{$mark}}</span></td>
-                                        @endif
-
-                                    </tr>
-                                @endforeach
-                            @endforeach
-                        </table>
-                    </div>
-                </div>
-            @endif
         </div>
+        @endif
 
     </div>
 

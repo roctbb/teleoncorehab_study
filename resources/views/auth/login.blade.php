@@ -15,7 +15,7 @@
     <!-- Custom styles for this template -->
     <style>
         body {
-            padding-top: 120px;
+            padding-top: max(5vw, 50px);
             padding-bottom: 40px;
             background-color: white;
         }

@@ -60,19 +60,21 @@
                 <li class="nav-item {{(Request::is('insider/courses*') ? 'active' : '') }}">
                     <a class="nav-link" href="{{url('/insider/courses')}}">Курсы <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item {{(Request::is('insider/profile*') ? 'active' : '') }}">
-                    <a class="nav-link" href="{{url('insider/profile')}}">Профиль</a>
-                </li>
-                <li class="nav-item {{(Request::is('insider/community*') ? 'active' : '') }}">
-                    <a class="nav-link" href="{{url('insider/community')}}">Сообщество</a>
-                </li>
+                @if (Auth::User()->role == 'teacher')
+                    <li class="nav-item {{(Request::is('insider/requests*') ? 'active' : '') }}">
+                        <a class="nav-link" href="{{url('insider/requests')}}">Заявки</a>
+                    </li>
+                    <li class="nav-item {{(Request::is('insider/diplomas*') ? 'active' : '') }}">
+                        <a class="nav-link" href="{{url('insider/diplomas')}}">Сертификаты</a>
+                    </li>
+                @endif
             </ul>
 
             <ul class="navbar-nav" style="width: 220px;">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
-                        {{ Auth::user()->name }}</a>
+                        {{ preg_replace('~^(\S++)\s++(\S)\S++\s++(\S)\S++$~u', '$1 $2.$3.',Auth::user()->name) }}</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Выход</a>

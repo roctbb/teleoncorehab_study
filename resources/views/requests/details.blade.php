@@ -211,8 +211,7 @@
             @if($user->completedCourses->count()!=0)
                 <div class="row">
                     <div class="col-md-8">
-                        <h4 style="margin: 20px;" class="card-title">Завершенные курсы <img
-                                    src="https://png.icons8.com/gold-medal/color/30/000000"></h4>
+                        <h4 style="margin: 20px;" class="card-title">Завершенные курсы</h4>
                     </div>
                 </div>
                 <div class="row">
@@ -221,8 +220,8 @@
                             <div class="card" style="width: 100%; margin-bottom: 10px;">
                                 <div class="card-body">
                                     <h5 class="card-title">{{$course->name}}
-                                        <a class="float-right"
-                                           href="{{url('/insider/profile/delete-course/'.$course->id)}}"><span
+                                        <a onclick="return confirm('Вы уверены что хотите аннулировать тест? ')" class="float-right"
+                                           href="{{url('/insider/certificates/'.$course->id.'/delete')}}"><span
                                                     aria-hidden="true">&times;</span></a></h5>
                                     <p>
                                         <span class="badge badge-pill badge-success">Оценка: <strong>{{$course->mark}}</strong></span>

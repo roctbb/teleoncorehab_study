@@ -229,4 +229,6 @@ return [
 
     ],
 
+    'info_email' => env('INFO_EMAIL', 'roctbb@gmail.com')
+
 ];

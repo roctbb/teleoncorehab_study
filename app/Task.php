@@ -26,10 +26,5 @@ class Task extends Model
         return $this->hasMany('App\Solution', 'task_id', 'id');
     }
 
-    public function questions()
-    {
-        return $this->hasMany('App\Question', 'task_id', 'id');
-    }
-
 
 }

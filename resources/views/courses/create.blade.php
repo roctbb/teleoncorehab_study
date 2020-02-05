@@ -5,7 +5,8 @@
 @endsection
 
 @section('content')
-    <h2>Создание курса</h2>
+    <h2><a class="back-link" href="{{url('/insider/courses/')}}"><i
+                    class="icon ion-chevron-left"></i></a> Создание курса</h2>
     <div class="row" style="margin-top: 15px;">
         <div class="col">
             <form method="POST" class="form-horizontal" enctype="multipart/form-data">

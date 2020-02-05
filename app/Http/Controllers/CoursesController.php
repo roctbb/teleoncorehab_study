@@ -61,6 +61,7 @@ class CoursesController extends Controller
         $course = Course::findOrFail($id);
         $students = $course->students;
         $marks = CompletedCourse::where('course_id', $id)->get();
+        $completed = CompletedCourse::where('course_id', $course->id)->where('user_id', Auth::user()->id)->first();
 
 
         $temp_steps = collect([]);
@@ -104,10 +105,7 @@ class CoursesController extends Controller
             $lessons = $course->lessons;
         }
 
-
-
-
-        return view('courses.details', compact('course', 'user', 'steps', 'students', 'cstudent', 'lessons', 'marks'));
+        return view('courses.details', compact('course', 'user', 'steps', 'students', 'cstudent', 'lessons', 'marks', 'completed'));
     }
 
     public function assessments($id)

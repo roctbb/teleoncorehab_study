@@ -6,7 +6,8 @@
 
 @section('content')
 
-    <h2>Изменение курса "{{$course->name}}"</h2>
+    <h2><a class="back-link" href="{{url('/insider/courses/'.$course->id)}}"><i
+                    class="icon ion-chevron-left"></i></a>Изменение курса "{{$course->name}}"</h2>
     <div class="row" style="margin-top: 15px;">
         <div class="col">
             <form method="POST" class="form-horizontal" enctype="multipart/form-data">

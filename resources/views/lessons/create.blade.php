@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2>Создание урока</h2>
+    <h2><a class="back-link" href="{{url('/insider/courses/'.$course->id)}}"><i
+                    class="icon ion-chevron-left"></i></a>Создание урока</h2>
 
     <div class="row" style="margin-top: 15px;">
         <div class="col">

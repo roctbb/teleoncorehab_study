@@ -56,6 +56,11 @@ Route::prefix('insider')->middleware(['auth', 'accepted'])->group(function () {
     Route::get('/courses/{id}/assessments', 'CoursesController@assessments');
     Route::get('/courses/{id}/export', 'CoursesController@export');
     Route::get('/courses/{id}/enroll', 'CoursesController@enroll');
+    Route::get('/courses/{id}/questions', 'QuestionsController@perform');
+    Route::post('/courses/{id}/questions', 'QuestionsController@check');
+    Route::get('/courses/{id}/questions/editor', 'QuestionsController@editor');
+    Route::post('/courses/{id}/questions/editor', 'QuestionsController@edit');
+    Route::get('/courses/{id}/questions/report', 'QuestionsController@report');
 
 
     Route::get('/courses/{id}/create', 'LessonsController@createView');
@@ -96,9 +101,15 @@ Route::prefix('insider')->middleware(['auth', 'accepted'])->group(function () {
     Route::post('/solution/{id}', 'TasksController@estimateSolution');
 
     Route::get('/requests', 'RequestsController@index');
+
     Route::get('/profile/{id?}', 'RequestsController@details');
 
+    Route::get('/certificates', 'CertificatesController@index');
+    Route::get('/certificates/{id}/deliver', 'CertificatesController@deliver');
+    Route::get('/certificates/{id}/delete', 'CertificatesController@delete');
 
+
+    Route::get('/profile/{id}/edit', 'RequestsController@editView');
     Route::get('/profile/{id}/edit', 'RequestsController@editView');
     Route::post('/profile/{id}/edit', 'RequestsController@edit');
     Route::post('/profile/{id}/course', 'RequestsController@course');

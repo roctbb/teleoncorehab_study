@@ -3,7 +3,8 @@
 @section('content')
     <div class="row">
         <div class="col s12">
-            <h3>Изменение урока: "{{$lesson->name}}"</h3>
+            <h3><a class="back-link" href="{{url('/insider/courses/'.$course->id)}}"><i
+                            class="icon ion-chevron-left"></i></a> Изменение урока: "{{$lesson->name}}"</h3>
             <form method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group">

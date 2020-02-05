@@ -9,12 +9,12 @@ class Question extends Model
     protected $table = 'questions';
 
     protected $fillable = [
-        'text', 'step_id'
+        'text', 'course_id'
     ];
 
-    public function step()
+    public function course()
     {
-        return $this->belongsTo('App\CourseStep', 'step_id', 'id');
+        return $this->belongsTo('App\Course', 'course_id', 'id');
     }
 
     public function variants()

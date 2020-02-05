@@ -64,8 +64,8 @@
                     <li class="nav-item {{(Request::is('insider/requests*') ? 'active' : '') }}">
                         <a class="nav-link" href="{{url('insider/requests')}}">Заявки</a>
                     </li>
-                    <li class="nav-item {{(Request::is('insider/diplomas*') ? 'active' : '') }}">
-                        <a class="nav-link" href="{{url('insider/diplomas')}}">Сертификаты</a>
+                    <li class="nav-item {{(Request::is('insider/certificates*') ? 'active' : '') }}">
+                        <a class="nav-link" href="{{url('insider/certificates')}}">Сертификаты</a>
                     </li>
                 @endif
             </ul>

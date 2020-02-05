@@ -39,7 +39,8 @@ class LessonsController extends Controller
 
     public function createView($id)
     {
-        return view('lessons.create');
+        $course = Course::findOrFail($id);
+        return view('lessons.create', compact('course'));
     }
 
     public function create($id, Request $request)
@@ -75,7 +76,8 @@ class LessonsController extends Controller
     public function editView($id)
     {
         $lesson = Lesson::findOrFail($id);
-        return view('lessons.edit', compact('lesson'));
+        $course = $lesson->course;
+        return view('lessons.edit', compact('lesson', 'course'));
     }
 
     public function edit($id, Request $request)

@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Auth;
 use App\Project;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
 use Response;
 
@@ -139,6 +140,9 @@ class RequestsController extends Controller
         $user->state = 'accepted';
         $user->save();
 
+        $when = \Carbon\Carbon::now()->addSeconds(1);
+        Notification::send($user, (new \App\Notifications\RequestAccepted())->delay($when));
+
         return redirect('/insider/requests');
 
     }
@@ -148,6 +152,9 @@ class RequestsController extends Controller
         $user = User::findOrFail($id);
         $user->state = 'declined';
         $user->save();
+
+        $when = \Carbon\Carbon::now()->addSeconds(1);
+        Notification::send($user, (new \App\Notifications\RequestDeclined())->delay($when));
 
         return redirect('/insider/requests');
 

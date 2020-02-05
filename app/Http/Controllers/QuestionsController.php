@@ -10,6 +10,7 @@ use App\QuestionVariant;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 
 class QuestionsController extends Controller
 {
@@ -59,6 +60,13 @@ class QuestionsController extends Controller
         $completed->name = $course->name;
         $completed->user_id = Auth::user()->id;
         $completed->save();
+
+        if ($completed->mark >= 70)
+        {
+            $when = \Carbon\Carbon::now()->addSeconds(1);
+            Notification::send(User::where('role', 'teacher')->get(), (new \App\Notifications\NewCertificate($completed))->delay($when));
+        }
+
         return redirect('insider/courses/'.$course_id.'/questions/report');
     }
 

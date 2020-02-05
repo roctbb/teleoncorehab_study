@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Provider;
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
@@ -172,6 +173,9 @@ class RegisterController extends Controller
         $this->validator($request->all())->validate();
         event(new Registered($user = $this->create($request)));
         $this->guard()->login($user);
+
+        $when = \Carbon\Carbon::now()->addSeconds(1);
+        Notification::send(User::where('role', 'teacher')->get(), (new \App\Notifications\NewRequests($user))->delay($when));
 
         return $this->registered($request, $user)
             ?: redirect($this->redirectPath());

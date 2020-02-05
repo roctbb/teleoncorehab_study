@@ -77,7 +77,7 @@
         {{ csrf_field() }}
 
         <label for="inputEmail" class="sr-only">Email</label>
-        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required
+        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email адрес" required
                autofocus>
         @if ($errors->has('email'))
             <span class="help-block error-block">
@@ -85,7 +85,7 @@
                                     </span>
         @endif
         <label for="inputPassword" class="sr-only">Пароль</label>
-        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Пароль" required>
         @if ($errors->has('password'))
             <span class="help-block error-block">
                                         <strong>{{ $errors->first('password') }}</strong>
@@ -94,7 +94,7 @@
 
         <button class="btn btn btn-primary btn-block" style="background-color: #0d6279; border: none;" type="submit">Вход</button>
         <p style="margin-top: 15px;">
-            <a style="color: #0d6279;" href="{{url('/register')}}"><i class="icon ion-person-add"></i>&nbsp;Регистрация</a><br>
+            <a style="color: #0d6279;" href="{{url('/register')}}"><i class="icon ion-person-add"></i>&nbsp;Регистрация на платформе</a><br>
             <a style="color: #0d6279;" href="{{url('/password/reset')}}">&nbsp;<i class="icon ion-key"></i>&nbsp;&nbsp;Забыли пароль?</a>
         </p>
     </form>

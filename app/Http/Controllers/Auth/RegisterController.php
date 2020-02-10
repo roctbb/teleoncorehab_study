@@ -82,7 +82,7 @@ class RegisterController extends Controller
             'certificate_file' => 'required|file|max:100000',
             'snils_file' => 'required|file|max:100000',
             'passport_file' => 'required|file|max:100000',
-            'request_file' => 'required|file|max:100000
+            'request_file' => 'required|file|max:100000'
         ]);
     }
 

@@ -118,7 +118,7 @@ Route::prefix('insider')->middleware(['auth', 'accepted'])->group(function () {
     Route::get('/profile/{user_id}/download/{name}', 'RequestsController@download');
 
     Route::get('/testmail', function () {
-        $user = \App\User::findOrFail(1);
+        $user = \App\User::findOrFail(2);
         $when = \Carbon\Carbon::now()->addSeconds(1);
         $user->notify((new \App\Notifications\NewSolution()));
     });

@@ -65,6 +65,10 @@
             methods: {
                 add_question: function (record) {
                     var sort_id = this.questions[this.questions.length - 1]['sort_id'] + 1;
+                    if (sort_id == undefined)
+                    {
+                        sort_id = 0;
+                    }
                     this.questions.push({
                         "id": null,
                         "text": "",

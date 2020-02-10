@@ -76,13 +76,13 @@ class RegisterController extends Controller
             'job_title' => 'required|string|max:100',
             'job_place' => 'required|string|max:2048',
             'job_years' => 'required|numeric|min:0',
-            'diploma_file' => 'required|file|max:100000',
-            'surname_file' => 'nullable|file|max:100000',
-            'postgraduate_file' => 'required|file|max:100000',
-            'certificate_file' => 'required|file|max:100000',
-            'snils_file' => 'required|file|max:100000',
-            'passport_file' => 'required|file|max:100000',
-            'request_file' => 'required|file|max:100000'
+            'diploma_file' => 'required|file|max:15000',
+            'surname_file' => 'nullable|file|max:15000',
+            'postgraduate_file' => 'required|file|max:15000',
+            'certificate_file' => 'required|file|max:15000',
+            'snils_file' => 'required|file|max:15000',
+            'passport_file' => 'required|file|max:15000',
+            'request_file' => 'required|file|max:15000'
         ]);
     }
 

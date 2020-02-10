@@ -244,7 +244,7 @@
 
                                     <div class="form-group required">
                                         <label class="control-label" for='postgraduate_name'>Специальность прохождения
-                                            <strong>аспирантуры</strong></label>
+                                            <strong>ординатуры</strong></label>
 
                                         <input id='postgraduate_name' type="text" class="form-control"
                                                name='postgraduate_name'

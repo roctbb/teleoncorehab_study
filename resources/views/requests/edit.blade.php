@@ -244,7 +244,7 @@
                         </div>
 
                         <div class="form-group required">
-                            <label  class="control-label" for='postgraduate_name'>Специальность прохождения <strong>аспирантуры</strong></label>
+                            <label  class="control-label" for='postgraduate_name'>Специальность прохождения <strong>ординатуры</strong></label>
 
                             <input id='postgraduate_name' type="text" class="form-control" name='postgraduate_name'
                                    value="{{ old('postgraduate_name') != null ? old('postgraduate_name') : $user->postgraduate_name }}"

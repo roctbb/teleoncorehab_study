@@ -110,7 +110,7 @@
                         </tr>
 
                         <tr>
-                            <td>Специальность аспирантуры:</td>
+                            <td>Специальность ординатуры:</td>
                             <td style="text-align: right">{{$user->postgraduate_name}}
                                 <i>({{$user->postgraduate_year}} год)</i></td>
                         </tr>
@@ -161,7 +161,7 @@
                                     @endif
                                     <li><a target="_blank"
                                            href="{{ url('/insider/profile/'.$user->id.'/download/'.$user->postgraduate_file) }}">Документ
-                                            об окончании аспирантуры</a></li>
+                                            об окончании ординатуры</a></li>
                                     <li><a target="_blank"
                                            href="{{ url('/insider/profile/'.$user->id.'/download/'.$user->certificate_file) }}">Сертификат</a>
                                     </li>

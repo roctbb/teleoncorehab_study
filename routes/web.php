@@ -120,7 +120,7 @@ Route::prefix('insider')->middleware(['auth', 'accepted'])->group(function () {
     Route::get('/testmail', function () {
         $user = \App\User::findOrFail(2);
         $when = \Carbon\Carbon::now()->addSeconds(1);
-        $user->notify((new \App\Notifications\NewSolution()));
+        $user->notify((new \App\Notifications\RequestAccepted()));
     });
 });
 

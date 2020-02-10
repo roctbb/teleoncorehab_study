@@ -64,10 +64,10 @@
             },
             methods: {
                 add_question: function (record) {
-                    var sort_id = this.questions[this.questions.length - 1]['sort_id'] + 1;
-                    if (sort_id == undefined)
+                    var sort_id = 0;
+                    if (this.questions[this.questions.length - 1] != undefined)
                     {
-                        sort_id = 0;
+                        sort_id = this.questions[this.questions.length - 1]['sort_id'] + 1;
                     }
                     this.questions.push({
                         "id": null,

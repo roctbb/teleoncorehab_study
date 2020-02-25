@@ -106,7 +106,7 @@ class CoursesController extends Controller
             $lessons = $course->lessons;
         }
 
-        return view('courses.details', compact('course', 'user', 'steps', 'students', 'cstudent', 'lessons', 'marks', 'completed'));
+        return view('courses.details', compact('course', 'user', 'steps', 'students', 'lessons', 'marks', 'completed'));
     }
 
     public function assessments($id)

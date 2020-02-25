@@ -211,7 +211,7 @@ sup > i {
     padding: 0;
     padding-top: 10px;
     min-height: 100%;
-    background-color: #7398a6;
+    background-color: #0d6279;
 }
 
 .nav-pills .nav-link.active {
@@ -231,14 +231,14 @@ sup > i {
 }
 
 .bg-dark {
-    background-color: #7398a6 !important;
+    background-color: #0d6279 !important;
 }
 .card.bg-dark {
     background-color: white !important;
 }
 
 .card.bg-dark a {
-    color: #7398a6 !important;
+    color: #0d6279 !important;
 }
 
 .card {

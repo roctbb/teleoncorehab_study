@@ -92,10 +92,10 @@
                                     </span>
         @endif
 
-        <button class="btn btn btn-primary btn-block" style="background-color: #7398a6; border: none;" type="submit">Вход</button>
+        <button class="btn btn btn-primary btn-block" style="background-color: #0d6279; border: none;" type="submit">Вход</button>
         <p style="margin-top: 15px;">
-            <a style="color: #7398a6;" href="{{url('/register')}}"><i class="icon ion-person-add"></i>&nbsp;Регистрация на платформе</a><br>
-            <a style="color: #7398a6;" href="{{url('/password/reset')}}">&nbsp;<i class="icon ion-key"></i>&nbsp;&nbsp;Забыли пароль?</a>
+            <a style="color: #0d6279;" href="{{url('/register')}}"><i class="icon ion-person-add"></i>&nbsp;Регистрация на платформе</a><br>
+            <a style="color: #0d6279;" href="{{url('/password/reset')}}">&nbsp;<i class="icon ion-key"></i>&nbsp;&nbsp;Забыли пароль?</a>
         </p>
     </form>
 

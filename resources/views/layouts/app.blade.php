@@ -43,6 +43,17 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="{{url('js/jquery-ui.min.js')}}"></script>
 
+    <style>
+        body {
+            background-position: right top;
+            background-repeat: no-repeat;
+            background-color: #ffffff;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23d0ddeb' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%23618fa8' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23dde6ef' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23719fb5' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23e2ebf4' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%23729ab2' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23eef4f9' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%2389a7b8' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23eef4fb' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%2396b8cc' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23d8e7f7' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%2396afc3' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+
 
 </head>
 <body style="background-image: url('/course-bg.jpg'); background-position: right top; background-repeat: no-repeat;">

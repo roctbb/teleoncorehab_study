@@ -44,6 +44,7 @@
     <script src="{{url('js/jquery-ui.min.js')}}"></script>
 
     <style>
+        @if (Request::is('courses/'))
         body {
             background-position: right top;
             background-repeat: no-repeat;
@@ -52,6 +53,14 @@
             background-attachment: fixed;
             background-size: cover;
         }
+
+        @else
+        body {
+            background-position: right top;
+            background-repeat: no-repeat;
+            background-image: url("course-bg.jpg");
+        }
+        @endif
     </style>
 
 

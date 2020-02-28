@@ -44,7 +44,7 @@
     <script src="{{url('js/jquery-ui.min.js')}}"></script>
 
     <style>
-        @if (Request::is('courses/'))
+        @if (Request::is('insider/courses'))
         body {
             background-position: right top;
             background-repeat: no-repeat;
@@ -58,7 +58,7 @@
         body {
             background-position: right top;
             background-repeat: no-repeat;
-            background-image: url("course-bg.jpg");
+            background-image: url("/course-bg.jpg");
         }
         @endif
     </style>

@@ -46,7 +46,7 @@
     <style>
         @if (Request::is('insider/courses'))
         body {
-            background-position: right top;
+            background-position: 80% -160%;
             background-repeat: no-repeat;
             background-color: #ffffff;
             background-image: url('/bglogo.png');

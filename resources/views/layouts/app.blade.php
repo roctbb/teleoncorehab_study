@@ -45,7 +45,7 @@
 
 
 </head>
-<body>
+<body style="background-image: url('/course-bg.jpg'); background-position: right top; background-repeat: no-repeat;">
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <a href="{{url('/')}}" class="navbar-brand" href="#">TELEONCOREHAB STUDY</a>
@@ -85,7 +85,7 @@
     </div>
 </nav>
 
-<div class="container" style="margin-top: 30px; background-image: url('/course-bg.jpg'); background-position: right top; background-repeat: no-repeat;">
+<div class="container" style="margin-top: 30px;">
     @if(Session::has('alert-class') and Session::get('alert-destination')=='head')
         <div class="alert {{ Session::get('alert-class') }} alert-dismissible" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span

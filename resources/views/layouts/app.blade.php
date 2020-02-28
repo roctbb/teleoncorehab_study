@@ -56,7 +56,7 @@
 
 
 </head>
-<body style="background-image: url('/course-bg.jpg'); background-position: right top; background-repeat: no-repeat;">
+<body style="">
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <a href="{{url('/')}}" class="navbar-brand" href="#">TELEONCOREHAB STUDY</a>

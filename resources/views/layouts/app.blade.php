@@ -85,7 +85,7 @@
     </div>
 </nav>
 
-<div class="container" style="margin-top: 30px;">
+<div class="container" style="margin-top: 30px; background-image: url('/course-bg.jpg'); background-position: right top; background-repeat: no-repeat;">
     @if(Session::has('alert-class') and Session::get('alert-destination')=='head')
         <div class="alert {{ Session::get('alert-class') }} alert-dismissible" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span

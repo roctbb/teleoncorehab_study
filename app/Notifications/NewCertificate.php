@@ -43,7 +43,7 @@ class NewCertificate extends Notification implements ShouldQueue
     {
         return (new MailMessage)->greeting('Добрый день!')->subject('Новый успешно пройденный итоговый тест')
             ->line('Пользователь '.$this->completed->user->name.' успешно прошел итоговый тест по курсу "'.$this->completed->name.'" к платформе Oncorehab Study.')
-            ->action('Список заявок на сертификаты', url("/insider/certificates/"));
+            ->action('Список заявок на свидетельство', url("/insider/certificates/"));
     }
 
     /**

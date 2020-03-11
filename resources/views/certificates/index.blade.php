@@ -25,7 +25,7 @@
             </div>
         @endforeach
     </div>
-    <h3 class="lead" style="margin-left:15px;">Выданные сертификаты</h3>
+    <h3 class="lead" style="margin-left:15px;">Выданные свидетельства</h3>
     <div class="row" style="margin-top: 15px;margin-left: 0;margin-right: 0;">
         @foreach($delivered as $item)
             <div class="col-md-4 col-sm-4 col-6 col-lg-3" style="margin-bottom: 15px; padding: 5px;">

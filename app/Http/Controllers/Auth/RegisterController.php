@@ -139,14 +139,21 @@ class RegisterController extends Controller
         }
 
         # postgraduate_file
-        $fileName = "postgraduate".time().'.'.$data->postgraduate_file->getClientOriginalExtension();
-        $path = $data->postgraduate_file->storeAs('documents/'.$user->id.'/', $fileName);
-        $user->postgraduate_file = $fileName;
+        if ($data->hasFile('postgraduate_file'))
+        {
+            $fileName = "postgraduate".time().'.'.$data->postgraduate_file->getClientOriginalExtension();
+            $path = $data->postgraduate_file->storeAs('documents/'.$user->id.'/', $fileName);
+            $user->postgraduate_file = $fileName;
+        }
+
 
         # certificate_file
-        $fileName = "certificate".time().'.'.$data->certificate_file->getClientOriginalExtension();
-        $path = $data->certificate_file->storeAs('documents/'.$user->id.'/', $fileName);
-        $user->certificate_file = $fileName;
+        if ($data->hasFile('certificate_file'))
+        {
+            $fileName = "certificate".time().'.'.$data->certificate_file->getClientOriginalExtension();
+            $path = $data->certificate_file->storeAs('documents/'.$user->id.'/', $fileName);
+            $user->certificate_file = $fileName;
+        }
 
         # snils_file
         $fileName = "snils".time().'.'.$data->snils_file->getClientOriginalExtension();

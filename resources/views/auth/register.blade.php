@@ -206,14 +206,13 @@
                                     </div>
 
 
-                                    <div class="form-group required">
+                                    <div class="form-group">
                                         <label class="control-label" for='internship_name'>Специальность прохождения
                                             <strong>интернатуры</strong></label>
 
                                         <input id='internship_name' type="text" class="form-control"
                                                name='internship_name'
-                                               value="{{old('internship_name')}}"
-                                               required>
+                                               value="{{old('internship_name')}}">
 
                                         <span class="help-block text-muted"></span>
 
@@ -225,14 +224,13 @@
                                         @endif
                                     </div>
 
-                                    <div class="form-group required">
+                                    <div class="form-group">
                                         <label class="control-label" for='internship_year'>Год окончания</label>
 
 
                                         <input id='internship_year' type="number" min="1900" max="2500"
                                                class="form-control" name='internship_year'
-                                               value="{{old('internship_year')}}"
-                                               required>
+                                               value="{{old('internship_year')}}">
                                         <span class="help-block text-muted"></span>
 
                                         @if ($errors->has('internship_year'))
@@ -242,14 +240,13 @@
                                         @endif
                                     </div>
 
-                                    <div class="form-group required">
+                                    <div class="form-group">
                                         <label class="control-label" for='postgraduate_name'>Специальность прохождения
                                             <strong>ординатуры</strong></label>
 
                                         <input id='postgraduate_name' type="text" class="form-control"
                                                name='postgraduate_name'
-                                               value="{{old('postgraduate_name')}}"
-                                               required>
+                                               value="{{old('postgraduate_name')}}">
 
                                         <span class="help-block text-muted"></span>
 
@@ -261,14 +258,13 @@
                                         @endif
                                     </div>
 
-                                    <div class="form-group required">
+                                    <div class="form-group">
                                         <label class="control-label" for='postgraduate_year'>Год окончания</label>
 
 
                                         <input id='postgraduate_year' type="number" min="1900" max="2500"
                                                class="form-control" name='postgraduate_year'
-                                               value="{{old('postgraduate_year')}}"
-                                               required>
+                                               value="{{old('postgraduate_year')}}">
                                         <span class="help-block text-muted"></span>
 
                                         @if ($errors->has('postgraduate_year'))
@@ -291,14 +287,13 @@
                                     </div>
 
 
-                                    <div class="form-group required">
+                                    <div class="form-group">
                                         <label class="control-label" for='certificate_number'>Сертификат специалиста
                                             №</label>
 
                                         <input id='certificate_number' type="text" class="form-control"
                                                name='certificate_number'
-                                               value="{{old('certificate_number')}}"
-                                               required>
+                                               value="{{old('certificate_number')}}">
 
                                         <span class="help-block text-muted"></span>
 
@@ -310,13 +305,12 @@
                                         @endif
                                     </div>
 
-                                    <div class="form-group required">
+                                    <div class="form-group">
                                         <label class="control-label" for='certificate_specialty'>Специальность</label>
 
                                         <input id='certificate_specialty' type="text" class="form-control"
                                                name='certificate_specialty'
-                                               value="{{old('certificate_specialty')}}"
-                                               required>
+                                               value="{{old('certificate_specialty')}}">
 
                                         <span class="help-block text-muted"></span>
 
@@ -328,14 +322,13 @@
                                         @endif
                                     </div>
 
-                                    <div class="form-group required">
+                                    <div class="form-group">
                                         <label class="control-label" for='certificate_year'>Год выдачи</label>
 
 
                                         <input id='certificate_year' type="number" min="1900" max="2500"
                                                class="form-control" name='certificate_year'
-                                               value="{{old('certificate_year')}}"
-                                               required>
+                                               value="{{old('certificate_year')}}">
                                         <span class="help-block text-muted"></span>
 
                                         @if ($errors->has('certificate_year'))
@@ -428,14 +421,13 @@
                                         @endif
                                     </div>
 
-                                    <div class="form-group required">
+                                    <div class="form-group">
                                         <label class="control-label" for='postgraduate_file'>Копия документа об
                                             окончании интернатуры/ординатуры:</label>
 
                                         <input id='postgraduate_file' type="file" class="form-control"
                                                name='postgraduate_file'
-                                               value="{{old('postgraduate_file')}}"
-                                               required>
+                                               value="{{old('postgraduate_file')}}">
 
                                         @if ($errors->has('postgraduate_file'))
                                             <span class="help-block error-block">

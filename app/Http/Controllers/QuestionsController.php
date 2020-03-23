@@ -61,7 +61,7 @@ class QuestionsController extends Controller
         $completed->user_id = Auth::user()->id;
         $completed->save();
 
-        if ($completed->mark >= 70)
+        if ($completed->mark >= 50)
         {
             $when = \Carbon\Carbon::now()->addSeconds(1);
             Notification::send(User::where('role', 'teacher')->get(), (new \App\Notifications\NewCertificate($completed))->delay($when));

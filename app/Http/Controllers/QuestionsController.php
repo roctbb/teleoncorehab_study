@@ -81,6 +81,12 @@ class QuestionsController extends Controller
         $answers = QuestionAnswer::where('user_id', Auth::user()->id)->whereIn('question_id', $questions->pluck('id'))->get();
 
         $prepaired_answers = [];
+
+        foreach ($questions as $question)
+        {
+            $prepaired_answers[$question->id] = '';
+        }
+
         foreach ($answers as $answer)
         {
             $prepaired_answers[$answer->question_id] = $answer->variant_id;

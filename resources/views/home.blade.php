@@ -53,6 +53,24 @@
                 </div>
 
             </div>
+
+            @if ($user->role == 'student')
+                <div class="row" style="margin-top: 15px;">
+                    <div class="col">
+                        <h5>Мультимедийная телеобучающая платформа «TELEONCOREHAB STUDY»:</h5>
+
+                        <ul>
+                            <li>принципы и этапы реабилитации в онкологии;</li>
+                            <li>клинические рекомендации;</li>
+                            <li>основные технологические приемы;</li>
+                            <li>наукометрический анализ исследований;</li>
+                            <li>повышение квалификации онкологов и реабилитологов.</li>
+                        </ul>
+
+                        <img style="width: 150px;" src="{{ url('fond.png') }}"/>
+                    </div>
+                </div>
+            @endif
         @endif
     @if ($user->role == 'teacher')
         <div class="row" style="margin-top: 15px;">

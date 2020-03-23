@@ -43,9 +43,27 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="{{url('js/jquery-ui.min.js')}}"></script>
 
+    <style>
+        @if (Request::is('insider/courses'))
+        body {
+            background-position: 80% -160%;
+            background-repeat: no-repeat;
+            background-color: #ffffff;
+            background-image: url('/bglogo.png');
+        }
+
+        @else
+        body {
+            background-position: right top;
+            background-repeat: no-repeat;
+            background-image: url("/course-bg.jpg");
+        }
+        @endif
+    </style>
+
 
 </head>
-<body>
+<body style="">
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <a href="{{url('/')}}" class="navbar-brand" href="#">TELEONCOREHAB STUDY</a>
@@ -65,7 +83,7 @@
                         <a class="nav-link" href="{{url('insider/requests')}}">Заявки</a>
                     </li>
                     <li class="nav-item {{(Request::is('insider/certificates*') ? 'active' : '') }}">
-                        <a class="nav-link" href="{{url('insider/certificates')}}">Сертификаты</a>
+                        <a class="nav-link" href="{{url('insider/certificates')}}">Свидетельства</a>
                     </li>
                 @endif
             </ul>

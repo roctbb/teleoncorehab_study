@@ -65,20 +65,20 @@ class RegisterController extends Controller
             'university_name' => 'required|string|max:512',
             'university_diploma' => 'required|string|max:100',
             'university_year' => 'required|numeric|min:1930|max:'.Carbon::now()->year,
-            'internship_name' => 'required|string|max:512',
-            'internship_year' => 'required|numeric|min:1930|max:'.Carbon::now()->year,
-            'postgraduate_name' => 'required|string|max:512',
-            'postgraduate_year' => 'required|numeric|min:1930|max:'.Carbon::now()->year,
+            'internship_name' => 'nullable|string|max:512',
+            'internship_year' => 'nullable|numeric|min:1930|max:'.Carbon::now()->year,
+            'postgraduate_name' => 'nullable|string|max:512',
+            'postgraduate_year' => 'nullable|numeric|min:1930|max:'.Carbon::now()->year,
             'courses_history' => 'nullable|string|max:2048',
-            'certificate_number' => 'required|string|max:100',
-            'certificate_specialty' => 'required|string|max:100',
-            'certificate_year' => 'required|numeric|min:1930|max:'.Carbon::now()->year,
+            'certificate_number' => 'nullable|string|max:100',
+            'certificate_specialty' => 'nullable|string|max:100',
+            'certificate_year' => 'nullable|numeric|min:1930|max:'.Carbon::now()->year,
             'job_title' => 'required|string|max:100',
             'job_place' => 'required|string|max:2048',
             'job_years' => 'required|numeric|min:0',
             'diploma_file' => 'required|file|max:15000',
             'surname_file' => 'nullable|file|max:15000',
-            'postgraduate_file' => 'required|file|max:15000',
+            'postgraduate_file' => 'nullable|file|max:15000',
             'certificate_file' => 'required|file|max:15000',
             'snils_file' => 'required|file|max:15000',
             'passport_file' => 'required|file|max:15000',
@@ -139,14 +139,21 @@ class RegisterController extends Controller
         }
 
         # postgraduate_file
-        $fileName = "postgraduate".time().'.'.$data->postgraduate_file->getClientOriginalExtension();
-        $path = $data->postgraduate_file->storeAs('documents/'.$user->id.'/', $fileName);
-        $user->postgraduate_file = $fileName;
+        if ($data->hasFile('postgraduate_file'))
+        {
+            $fileName = "postgraduate".time().'.'.$data->postgraduate_file->getClientOriginalExtension();
+            $path = $data->postgraduate_file->storeAs('documents/'.$user->id.'/', $fileName);
+            $user->postgraduate_file = $fileName;
+        }
+
 
         # certificate_file
-        $fileName = "certificate".time().'.'.$data->certificate_file->getClientOriginalExtension();
-        $path = $data->certificate_file->storeAs('documents/'.$user->id.'/', $fileName);
-        $user->certificate_file = $fileName;
+        if ($data->hasFile('certificate_file'))
+        {
+            $fileName = "certificate".time().'.'.$data->certificate_file->getClientOriginalExtension();
+            $path = $data->certificate_file->storeAs('documents/'.$user->id.'/', $fileName);
+            $user->certificate_file = $fileName;
+        }
 
         # snils_file
         $fileName = "snils".time().'.'.$data->snils_file->getClientOriginalExtension();

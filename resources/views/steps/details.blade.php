@@ -56,7 +56,7 @@
             @endif
         </nav>
 
-        <main role="main" class="col-sm-8 ml-sm-auto col-md-9 pt-3">
+        <main role="main" class="col-sm-8 ml-sm-auto col-md-9 pt-3" style="background-image: url('/course-bg.jpg'); background-position: right top; background-repeat: no-repeat;">
             <div style="padding: 15px;">
                 @if (\Request::is('insider/*'))
                     <small><a href="{{url('/insider/courses/'.$step->course->id)}}"

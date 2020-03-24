@@ -73,7 +73,7 @@
                 </div>
             @endif
         @endif
-        @foreach($lessons as $key => $lesson)
+        @foreach($course->lessons as $key => $lesson)
             @if ($lesson->steps->count()!=0)
                 <div class="card-group">
                     <div class="card" style="width: 100%;">
@@ -113,77 +113,10 @@
                         </div>
                         @if ($lesson->start_date!=null)
                             <div class="card-footer">
-                                @if ($user->role=='teacher')
-                                    <div class="collapse" id="marks{{$lesson->id}}">
-                                        @foreach($students as $student)
-                                            <div class="row">
-                                                <div class="col">
-                                                    {{$student->name}}
-                                                </div>
-                                                <div class="col">
-                                                    <div class="progress" style="margin: 5px;">
-                                                        @if ($lesson->percent($student) < 40)
-                                                            <div class="progress-bar progress-bar-striped bg-danger"
-                                                                 role="progressbar"
-                                                                 style="width: {{$lesson->percent($student)}}%"
-                                                                 aria-valuenow="{{$lesson->percent($student)}}"
-                                                                 aria-valuemin="0"
-                                                                 aria-valuemax="100">{{$lesson->points($student)}}
-                                                                / {{$lesson->max_points($student)}}</div>
-
-                                                        @elseif($lesson->percent($student) < 60)
-                                                            <div class="progress-bar progress-bar-striped bg-warning"
-                                                                 role="progressbar"
-                                                                 style="width: {{$lesson->percent($student)}}%"
-                                                                 aria-valuenow="{{$lesson->percent($student)}}"
-                                                                 aria-valuemin="0"
-                                                                 aria-valuemax="100">
-                                                                Успеваемость: {{$lesson->points($student)}}
-                                                                / {{$lesson->max_points($student)}}</div>
-
-                                                        @else
-                                                            <div class="progress-bar progress-bar-striped bg-success"
-                                                                 role="progressbar"
-                                                                 style="width: {{$lesson->percent($student)}}%"
-                                                                 aria-valuenow="{{$lesson->percent($student)}}"
-                                                                 aria-valuemin="0"
-                                                                 aria-valuemax="100">
-                                                                Успеваемость: {{$lesson->points($student)}}
-                                                                / {{$lesson->max_points($student)}}</div>
-
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                @endif
-
                                 <div class="row">
                                     <div class="col">
                                         <small class="text-muted"><i class="ion ion-clock"></i> Доступно
                                             с {{$lesson->start_date->format('Y-m-d')}}</small>
-                                    </div>
-                                    <div class="col">
-                                        @if ($user->role=='teacher')
-                                            <small class="text-muted float-right" style="margin-right: 15px;">
-                                                @foreach($students as $student)
-                                                    @if ($lesson->percent($student) < 40)
-                                                        <span class="badge badge-danger">&nbsp;</span>
-                                                    @elseif($lesson->percent($student) < 60)
-                                                        <span class="badge badge-warning">&nbsp;</span>
-                                                    @else
-                                                        <span class="badge badge-success">&nbsp;</span>
-                                                    @endif
-                                                @endforeach
-
-                                                <a style="margin-left: 10px;" data-toggle="collapse"
-                                                   href="#marks{{$lesson->id}}" aria-expanded="false"
-                                                   aria-controls="marks{{$lesson->id}}"><i
-                                                            class="ion ion-stats-bars"></i> Статистика
-                                                </a>
-                                            </small>
-                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -232,11 +165,9 @@
                         <b>Участники:</b>
                     </p>
                     <ul>
-                        @foreach($students->sortByDesc('percent') as $student)
+                        @foreach($course->students->sortByDesc('percent') as $student)
                             <li><a class="black-link"
-                                   href="{{url('/insider/profile/'.$student->id)}}">{{$student->name}}</a> <span
-                                        class="badge badge-primary float-right"> {{ round($student->percent) }}
-                                    % </span></li>
+                                   href="{{url('/insider/profile/'.$student->id)}}">{{$student->name}}</a> </li>
                         @endforeach
                     </ul>
 

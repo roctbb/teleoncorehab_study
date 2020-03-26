@@ -48,7 +48,7 @@ class RequestsController extends Controller
     public function details($id = null)
     {
         $user = User::findOrFail($id);
-        return view('requests.details', compact('user', 'guest'));
+        return view('requests.details', compact('user'));
     }
 
     public function editView($id)

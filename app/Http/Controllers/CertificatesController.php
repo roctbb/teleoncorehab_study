@@ -41,9 +41,9 @@ class CertificatesController extends Controller
     public function index()
     {
 
-        $pending = CompletedCourse::where('is_delivered', false)->where('mark', '>=', 70)->get();
-        $delivered = CompletedCourse::where('is_delivered', true)->where('mark', '>=', 70)->get();
-        $denied = CompletedCourse::where('is_delivered', false)->where('mark', '<', 70)->get();
+        $pending = CompletedCourse::where('is_delivered', false)->where('mark', '>=', 50)->get();
+        $delivered = CompletedCourse::where('is_delivered', true)->where('mark', '>=', 50)->get();
+        $denied = CompletedCourse::where('is_delivered', false)->where('mark', '<', 50)->get();
         return view('certificates.index', compact('pending', 'delivered', 'denied'));
     }
 

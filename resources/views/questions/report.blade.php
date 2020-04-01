@@ -12,7 +12,7 @@
 
             <p><strong>Ваш результат:</strong> {{$completed->mark}} %</p>
 
-            @if ($completed->mark >= 70)
+            @if ($completed->mark >= 50)
                 <div class="alert alert-success" role="alert">
                    Поздравляем, Вы успешно прошли тест! В ближайшее время мы свяжемся с вами по поводу получения свидетельства. Если у вас есть вопросы, свяжитесь с нами по адресу {{ config('app.info_email') }}.
                 </div>

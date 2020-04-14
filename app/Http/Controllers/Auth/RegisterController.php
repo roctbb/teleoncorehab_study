@@ -181,7 +181,7 @@ class RegisterController extends Controller
         event(new Registered($user = $this->create($request)));
         $this->guard()->login($user);
 
-        $when = \Carbon\Carbon::now()->addSeconds(1);
+        //$when = \Carbon\Carbon::now()->addSeconds(1);
         //Notification::send(User::where('role', 'teacher')->get(), (new \App\Notifications\NewRequests($user))->delay($when));
 
         return $this->registered($request, $user)

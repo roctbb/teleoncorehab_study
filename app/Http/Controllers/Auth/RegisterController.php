@@ -121,7 +121,7 @@ class RegisterController extends Controller
         $user->job_title = $data->job_title;
         $user->job_place = $data->job_place;
         $user->job_years = $data->job_years;
-        $user->state = 'pending';
+        $user->state = 'activated';
 
         $user->save();
 
@@ -182,7 +182,7 @@ class RegisterController extends Controller
         $this->guard()->login($user);
 
         $when = \Carbon\Carbon::now()->addSeconds(1);
-        Notification::send(User::where('role', 'teacher')->get(), (new \App\Notifications\NewRequests($user))->delay($when));
+        //Notification::send(User::where('role', 'teacher')->get(), (new \App\Notifications\NewRequests($user))->delay($when));
 
         return $this->registered($request, $user)
             ?: redirect($this->redirectPath());

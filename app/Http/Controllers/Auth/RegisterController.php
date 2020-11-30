@@ -17,7 +17,7 @@ class RegisterController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
-    | Register Controller
+    | Register Controller 
     |--------------------------------------------------------------------------
     |
     | This controller handles the registration of new users as well as their
@@ -57,32 +57,24 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
             'name' => 'required|string',
-            'gender' => 'required|in:male,female',
             'birthday' => 'required|date|date_format:Y-m-d',
             'country' => 'required|string|max:255',
             'address' => 'required|string|max:512',
             'phone' => 'required|string|max:100',
-            'university_name' => 'required|string|max:512',
-            'university_diploma' => 'required|string|max:100',
             'university_year' => 'required|numeric|min:1930|max:'.Carbon::now()->year,
-            'internship_name' => 'nullable|string|max:512',
-            'internship_year' => 'nullable|numeric|min:1930|max:'.Carbon::now()->year,
-            'postgraduate_name' => 'nullable|string|max:512',
-            'postgraduate_year' => 'nullable|numeric|min:1930|max:'.Carbon::now()->year,
-            'courses_history' => 'nullable|string|max:2048',
             'certificate_number' => 'nullable|string|max:100',
             'certificate_specialty' => 'nullable|string|max:100',
             'certificate_year' => 'nullable|numeric|min:1930|max:'.Carbon::now()->year,
-            'job_title' => 'required|string|max:100',
-            'job_place' => 'required|string|max:2048',
+            'job_title' => 'nullable|string|max:100',
+            'job_place' => 'nullable|string|max:2048',
             'job_years' => 'required|numeric|min:0',
             'diploma_file' => 'required|file|max:15000',
             'surname_file' => 'nullable|file|max:15000',
-            'postgraduate_file' => 'nullable|file|max:15000',
             'certificate_file' => 'required|file|max:15000',
             'snils_file' => 'required|file|max:15000',
             'passport_file' => 'required|file|max:15000',
-            'request_file' => 'required|file|max:15000'
+            'request_file' => 'required|file|max:15000',
+            'confirm' => 'required'
         ]);
     }
 
@@ -176,7 +168,6 @@ class RegisterController extends Controller
 
     public function register(Request $request)
     {
-
         $this->validator($request->all())->validate();
         event(new Registered($user = $this->create($request)));
         $this->guard()->login($user);

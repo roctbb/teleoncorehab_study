@@ -8,8 +8,7 @@
                       enctype="multipart/form-data">
                     {{ csrf_field() }}
 
-                    <h3 style="font-weight: 300;">Регистрация по программу повышения квалификации <strong>"Основы
-                            реабилитации онкологических пациентов (72 часа)"</strong>.</h3>
+                    <h3 style="font-weight: 300;">Регистрация по программы повышения квалификации TELEONCOREHAB STUDY</h3>
 
 
                     <div class="row" style="margin-top: 30px;">
@@ -72,23 +71,6 @@
                                         @endif
                                     </div>
 
-                                    <div class="form-group required">
-                                        <label class="control-label" for='gender'>Пол</label>
-
-
-                                        <select id='gender' class="form-control" name='gender'>
-                                            <option value="male" @if (old('gender') == 'male') selected @endif>Мужской
-                                            </option>
-                                            <option value="female" @if (old('gender') == 'female') selected @endif>
-                                                Женский
-                                            </option>
-                                        </select>
-
-                                        @if ($errors->has('gender'))
-                                            <span class="help-block error-block"><strong>{{ $errors->first('gender') }}</strong></span>
-                                        @endif
-                                    </div>
-
 
                                     <div class="form-group required">
                                         <label class="control-label" for='birthday'>Дата рождения</label>
@@ -122,10 +104,9 @@
                                     </div>
 
                                     <div class="form-group required">
-                                        <label class="control-label" for='address'>Адрес постоянного места
-                                            жительства</label>
-                                        <textarea id="address" class="form-control"
-                                                  name="address">{{old('address')}}</textarea>
+                                        <label class="control-label" for='address'>Город</label>
+                                        <input id="address" class="form-control"
+                                                  name="address" value="{{old('address')}}"/>
                                         <span class="help-block text-muted"></span>
 
                                         @if ($errors->has('address'))
@@ -171,24 +152,6 @@
                                         @endif
                                     </div>
                                     <div class="form-group required">
-                                        <label class="control-label" for='university_diploma'>Серия и номер
-                                            диплома</label>
-
-                                        <input id='university_diploma' type="text" class="form-control"
-                                               name='university_diploma'
-                                               value="{{old('university_diploma')}}"
-                                               required>
-
-                                        <span class="help-block text-muted"></span>
-
-
-                                        @if ($errors->has('university_diploma'))
-                                            <span class="help-block error-block">
-                                        <strong>{{ $errors->first('university_diploma') }}</strong>
-                                    </span>
-                                        @endif
-                                    </div>
-                                    <div class="form-group required">
                                         <label class="control-label" for='university_year'>Год окончания</label>
 
 
@@ -202,87 +165,6 @@
                                             <span class="help-block error-block">
                                         <strong>{{ $errors->first('university_year') }}</strong>
                                     </span>
-                                        @endif
-                                    </div>
-
-
-                                    <div class="form-group">
-                                        <label class="control-label" for='internship_name'>Специальность прохождения
-                                            <strong>интернатуры</strong></label>
-
-                                        <input id='internship_name' type="text" class="form-control"
-                                               name='internship_name'
-                                               value="{{old('internship_name')}}">
-
-                                        <span class="help-block text-muted"></span>
-
-
-                                        @if ($errors->has('internship_name'))
-                                            <span class="help-block error-block">
-                                        <strong>{{ $errors->first('internship_name') }}</strong>
-                                    </span>
-                                        @endif
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="control-label" for='internship_year'>Год окончания</label>
-
-
-                                        <input id='internship_year' type="number" min="1900" max="2500"
-                                               class="form-control" name='internship_year'
-                                               value="{{old('internship_year')}}">
-                                        <span class="help-block text-muted"></span>
-
-                                        @if ($errors->has('internship_year'))
-                                            <span class="help-block error-block">
-                                        <strong>{{ $errors->first('internship_year') }}</strong>
-                                    </span>
-                                        @endif
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="control-label" for='postgraduate_name'>Специальность прохождения
-                                            <strong>ординатуры</strong></label>
-
-                                        <input id='postgraduate_name' type="text" class="form-control"
-                                               name='postgraduate_name'
-                                               value="{{old('postgraduate_name')}}">
-
-                                        <span class="help-block text-muted"></span>
-
-
-                                        @if ($errors->has('postgraduate_name'))
-                                            <span class="help-block error-block">
-                                        <strong>{{ $errors->first('postgraduate_name') }}</strong>
-                                    </span>
-                                        @endif
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="control-label" for='postgraduate_year'>Год окончания</label>
-
-
-                                        <input id='postgraduate_year' type="number" min="1900" max="2500"
-                                               class="form-control" name='postgraduate_year'
-                                               value="{{old('postgraduate_year')}}">
-                                        <span class="help-block text-muted"></span>
-
-                                        @if ($errors->has('postgraduate_year'))
-                                            <span class="help-block error-block">
-                                        <strong>{{ $errors->first('postgraduate_year') }}</strong>
-                                    </span>
-                                        @endif
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="control-label" for='courses_history'>Профессиональная
-                                            переподготовка</label>
-                                        <textarea id="courses_history" class="form-control"
-                                                  name="courses_history">{{old('courses_history')}}</textarea>
-                                        <span class="help-block text-muted"></span>
-
-                                        @if ($errors->has('courses_history'))
-                                            <span class="help-block error-block"><strong>{{ $errors->first('courses_history') }}</strong></span>
                                         @endif
                                     </div>
 
@@ -358,14 +240,13 @@
                                         @endif
                                     </div>
 
-                                    <div class="form-group required">
+                                    <div class="form-group">
                                         <label class="control-label" for='job_title'>Занимаемая должность в настоящее
                                             время</label>
 
 
                                         <input id='job_title' type="text" class="form-control" name='job_title'
-                                               value="{{old('job_title')}}"
-                                               required>
+                                               value="{{old('job_title')}}">
                                         <span class="help-block text-muted"></span>
 
                                         @if ($errors->has('job_title'))
@@ -375,7 +256,7 @@
                                         @endif
                                     </div>
 
-                                    <div class="form-group required">
+                                    <div class="form-group">
                                         <label class="control-label" for='job_place'>Место основной работы</label>
 
                                         <textarea id="job_place" class="form-control"
@@ -417,21 +298,6 @@
                                         @if ($errors->has('surname_file'))
                                             <span class="help-block error-block">
                                         <strong>{{ $errors->first('surname_file') }}</strong>
-                                    </span>
-                                        @endif
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="control-label" for='postgraduate_file'>Копия документа об
-                                            окончании интернатуры/ординатуры:</label>
-
-                                        <input id='postgraduate_file' type="file" class="form-control"
-                                               name='postgraduate_file'
-                                               value="{{old('postgraduate_file')}}">
-
-                                        @if ($errors->has('postgraduate_file'))
-                                            <span class="help-block error-block">
-                                        <strong>{{ $errors->first('postgraduate_file') }}</strong>
                                     </span>
                                         @endif
                                     </div>
@@ -482,13 +348,13 @@
                                     </div>
 
                                     <div class="form-group required">
-                                        <label class="control-label" for='request_file'>Копия <a target="_blank" href="{{url('/zayavlenie.pdf')}}">заявления:</a></label>
+                                        <label class="control-label" for='request_file'>Скан заявки на прохождение курса на портале www.edu.rosminzdrav.com</label>
 
                                         <input id='request_file' type="file" class="form-control" name='request_file'
                                                value="{{old('request_file')}}"
                                                required>
 
-                                        <span class="help-block text-muted">Копия <a target="_blank" href="{{url('/zayavlenie.pdf')}}">заявление на зачиление на курс «Основы реабилитации онкологических пациентов», 72 часа</a>. Его нужно распечатать, заполнить и отсканировать.</span>
+                                        <!--<span class="help-block text-muted">Копия <a target="_blank" href="{{url('/zayavlenie.pdf')}}">заявление на зачиление на курс «Основы реабилитации онкологических пациентов», 72 часа</a>. Его нужно распечатать, заполнить и отсканировать.</span>-->
 
                                         @if ($errors->has('request_file'))
                                             <span class="help-block error-block">
@@ -496,6 +362,24 @@
                                     </span>
                                         @endif
                                     </div>
+
+                                    <div class="form-group required">
+                                        <label class="control-label" for='confirm'>На зачисление на курс согласен</label>
+
+                                        <input id='confirm' type="checkbox" name='confirm'
+                                               value="on" required>
+
+                                    <!--<span class="help-block text-muted">Копия <a target="_blank" href="{{url('/zayavlenie.pdf')}}">заявление на зачиление на курс «Основы реабилитации онкологических пациентов», 72 часа</a>. Его нужно распечатать, заполнить и отсканировать.</span>-->
+
+                                        @if ($errors->has('confirm'))
+                                            <span class="help-block error-block">
+                                        <strong>Подтвердите свое согласие</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+
+
+                                    
 
                                 </div>
 

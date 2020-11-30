@@ -57,6 +57,7 @@
             @if ($user->role == 'student')
                 <div class="row" style="margin-top: 15px;">
                     <div class="col">
+                        <p><i>По вопросам получения удостоверения о повышении квалификации по изученной теме обращаться по адресу umc-rnc@nmicrk.ru</i></p>
                         <h5>Мультимедийная телеобучающая платформа «TELEONCOREHAB STUDY»:</h5>
 
                         <ul>

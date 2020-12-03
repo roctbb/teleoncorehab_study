@@ -373,8 +373,7 @@
                                         <label class="control-label" for='request_file'>Скан заявки на прохождение курса на портале www.edu.rosminzdrav.com</label>
 
                                         <input id='request_file' type="file" class="form-control" name='request_file'
-                                               value="{{old('request_file')}}"
-                                               required>
+                                               value="{{old('request_file')}}" />
 
                                     <!--<span class="help-block text-muted">Копия <a target="_blank" href="{{url('/zayavlenie.pdf')}}">заявление на зачиление на курс «Основы реабилитации онкологических пациентов», 72 часа</a>. Его нужно распечатать, заполнить и отсканировать.</span>-->
 

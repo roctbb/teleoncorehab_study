@@ -8,9 +8,9 @@
                       enctype="multipart/form-data">
                     {{ csrf_field() }}
 
-                    <h3 style="font-weight: 300;">Регистрация на обзовательные программы на платформе TELEONCOREHAB STUDY</h3>
+                    <h3 style="font-weight: 300;">Регистрация на образовательные программы на платформе TELEONCOREHAB STUDY</h3>
 
-                    <div class="alert alert-success" role="alert">
+                    <div class="alert alert-success" style="margin-top: 15px;" role="alert">
                         <h4 class="alert-heading">Внимание!</h4>
                         <p>Если Вы планируете получить баллы в рамках НМО и удостоверение о повышении квалификации по выбранному курсу, Вам необходимо дополнительно зарегистрироваться на курс на
                             https://edu.rosminzdrav.ru/.</p>

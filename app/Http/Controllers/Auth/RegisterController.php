@@ -70,7 +70,7 @@ class RegisterController extends Controller
             'job_years' => 'required|numeric|min:0',
             'diploma_file' => 'required|file|max:15000',
             'surname_file' => 'nullable|file|max:15000',
-            'certificate_file' => 'required|file|max:15000',
+            'certificate_file' => 'nullable|file|max:15000',
             'snils_file' => 'required|file|max:15000',
             'passport_file' => 'required|file|max:15000',
             'request_file' => 'nullable|file|max:15000',

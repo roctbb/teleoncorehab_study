@@ -325,14 +325,13 @@
                                         @endif
                                     </div>
 
-                                    <div class="form-group required">
+                                    <div class="form-group">
                                         <label class="control-label" for='certificate_file'>Копия действующего
                                             сертификата специалиста:</label>
 
                                         <input id='certificate_file' type="file" class="form-control"
                                                name='certificate_file'
-                                               value="{{old('certificate_file')}}"
-                                               required>
+                                               value="{{old('certificate_file')}}">
 
                                         @if ($errors->has('certificate_file'))
                                             <span class="help-block error-block">

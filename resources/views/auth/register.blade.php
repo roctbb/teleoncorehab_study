@@ -8,7 +8,30 @@
                       enctype="multipart/form-data">
                     {{ csrf_field() }}
 
-                    <h3 style="font-weight: 300;">Регистрация по программы повышения квалификации TELEONCOREHAB STUDY</h3>
+                    <h3 style="font-weight: 300;">Регистрация на обзовательные программы на платформе TELEONCOREHAB STUDY</h3>
+
+                    <div class="alert alert-success" role="alert">
+                        <h4 class="alert-heading">Внимание!</h4>
+                        <p>Если Вы планируете получить баллы в рамках НМО и удостоверение о повышении квалификации по выбранному курсу, Вам необходимо дополнительно зарегистрироваться на курс на
+                            https://edu.rosminzdrav.ru/.</p>
+                        <hr>
+                        <p>
+                            <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                Как это сделать?
+                            </a>
+                        </p>
+                        <div class="collapse" id="collapseExample">
+                            <ul>
+                                <li>Перейдите с компьютера на сайт https://edu.rosminzdrav.ru/, получите логин и пароль и войдите в личный кабинет.</li>
+                                <li>Зайдите в раздел <b>«МОЙ ПЛАН»</b>.</li>
+                                <li>Откройте вкладку <b>«ДОБАВИТЬ ЭЛЕМЕНТЫ»</b>.</li>
+                                <li>Выберите цикл <b>«Основы диетотерапии онкологических пациентов (взрослых и детей)</b>.</li>
+                            </ul>
+
+                            <p>Текстовый поиск позволяет найти образовательное мероприятие при вводе полностью названия в строку поиска. Выберите справа дату 07.12.2020 и в графе напротив цикла нажмите на «Выбрать цикл» (курс числится как очный, бюджетный, с применением дистанционных технологий).</p>
+                            <p>По вопросам получения удостоверения государственного образца о повышении квалификации по изученной теме обращаться umc-rnc@nmicrk.ru</p>
+                        </div>
+                    </div>
 
 
                     <div class="row" style="margin-top: 30px;">
@@ -106,7 +129,7 @@
                                     <div class="form-group required">
                                         <label class="control-label" for='address'>Город</label>
                                         <input id="address" class="form-control"
-                                                  name="address" value="{{old('address')}}"/>
+                                               name="address" value="{{old('address')}}"/>
                                         <span class="help-block text-muted"></span>
 
                                         @if ($errors->has('address'))
@@ -347,14 +370,14 @@
                                         @endif
                                     </div>
 
-                                    <div class="form-group required">
+                                    <div class="form-group">
                                         <label class="control-label" for='request_file'>Скан заявки на прохождение курса на портале www.edu.rosminzdrav.com</label>
 
                                         <input id='request_file' type="file" class="form-control" name='request_file'
                                                value="{{old('request_file')}}"
                                                required>
 
-                                        <!--<span class="help-block text-muted">Копия <a target="_blank" href="{{url('/zayavlenie.pdf')}}">заявление на зачиление на курс «Основы реабилитации онкологических пациентов», 72 часа</a>. Его нужно распечатать, заполнить и отсканировать.</span>-->
+                                    <!--<span class="help-block text-muted">Копия <a target="_blank" href="{{url('/zayavlenie.pdf')}}">заявление на зачиление на курс «Основы реабилитации онкологических пациентов», 72 часа</a>. Его нужно распечатать, заполнить и отсканировать.</span>-->
 
                                         @if ($errors->has('request_file'))
                                             <span class="help-block error-block">
@@ -364,7 +387,7 @@
                                     </div>
 
                                     <div class="form-group required">
-                                        <label class="control-label" for='confirm'>На зачисление на курс согласен</label>
+                                        <label class="control-label" for='confirm'>На зачисление на курс и обработку персональных данных согласен</label>
 
                                         <input id='confirm' type="checkbox" name='confirm'
                                                value="on" required>
@@ -379,8 +402,6 @@
                                     </div>
 
 
-                                    
-
                                 </div>
 
 
@@ -388,9 +409,7 @@
 
 
                             <div class="col">
-                                <button style="margin-bottom: 50px;" type="submit" class="btn btn-success">Оставить
-                                    заявку на прохождение курса
-                                </button>
+                                <button style="margin-bottom: 50px;" type="submit" class="btn btn-lg btn-success">выбрать курс и приступить к обучению</button>
                             </div>
 
                         </div>

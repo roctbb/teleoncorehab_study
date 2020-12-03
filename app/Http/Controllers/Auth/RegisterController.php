@@ -73,7 +73,7 @@ class RegisterController extends Controller
             'certificate_file' => 'required|file|max:15000',
             'snils_file' => 'required|file|max:15000',
             'passport_file' => 'required|file|max:15000',
-            'request_file' => 'required|file|max:15000',
+            'request_file' => 'nullable|file|max:15000',
             'confirm' => 'required'
         ]);
     }
@@ -158,9 +158,11 @@ class RegisterController extends Controller
         $user->passport_file = $fileName;
 
         # request_file
-        $fileName = "request".time().'.'.$data->request_file->getClientOriginalExtension();
-        $path = $data->request_file->storeAs('documents/'.$user->id.'/', $fileName);
-        $user->request_file = $fileName;
+        if ($data->hasFile('request_file')) {
+            $fileName = "request" . time() . '.' . $data->request_file->getClientOriginalExtension();
+            $path = $data->request_file->storeAs('documents/' . $user->id . '/', $fileName);
+            $user->request_file = $fileName;
+        }
 
         $user->save();
         return $user;

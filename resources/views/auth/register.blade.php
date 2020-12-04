@@ -34,7 +34,7 @@
                     </div>
 
 
-                    <div class="row" style="margin-top: 30px;">
+                    <div class="row" style="margin-top: 15px;">
 
                         <div class="col-md-12">
                             <div class="card">
@@ -385,7 +385,7 @@
                                     </div>
 
                                     <div class="form-group required">
-                                        <label class="control-label" for='confirm'>На зачисление на курс и обработку персональных данных согласен</label>
+                                        <label class="control-label" for='confirm'>На зачисление на курс и <a target="_blank" href="{{ url('/privacy') }}">обработку персональных данных</a> согласен</label>
 
                                         <input id='confirm' type="checkbox" name='confirm'
                                                value="on" required>

@@ -28,4 +28,9 @@ class MediaController extends Controller
 
         return $response;
     }
+
+    public function privacy()
+    {
+        return view('privacy');
+    }
 }

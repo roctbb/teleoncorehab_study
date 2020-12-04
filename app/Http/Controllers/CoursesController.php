@@ -27,6 +27,7 @@ class CoursesController extends Controller
         $this->middleware('teacher')->only(['createView', 'editView', 'start', 'stop', 'edit', 'create', 'assesments']);
     }
 
+
     public function pending()
     {
         $user = Auth::User();

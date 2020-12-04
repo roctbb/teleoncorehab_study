@@ -126,3 +126,4 @@ Route::prefix('insider')->middleware(['auth', 'accepted'])->group(function () {
 
 
 Route::get('media/{dir}/{name}', 'MediaController@index');
+Route::get('privacy', 'MediaController@privacy');

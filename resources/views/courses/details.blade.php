@@ -74,7 +74,7 @@
             @endif
         @endif
 
-        <div class="alert alert-success" style="margin-top: 15px;" role="alert">
+        <div class="alert alert-success" role="alert">
             <h4 class="alert-heading">Внимание!</h4>
             <p>Если Вы планируете получить баллы в рамках НМО и удостоверение о повышении квалификации по выбранному курсу, Вам необходимо дополнительно зарегистрироваться на курс на
                 https://edu.rosminzdrav.ru/.</p>

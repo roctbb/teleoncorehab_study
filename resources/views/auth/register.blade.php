@@ -10,7 +10,7 @@
 
                     <h3 style="font-weight: 300;">Регистрация на образовательные программы на платформе TELEONCOREHAB STUDY</h3>
 
-                    <div class="alert alert-success" style="margin-top: 15px;" role="alert">
+                    <!--<div class="alert alert-success" style="margin-top: 15px;" role="alert">
                         <h4 class="alert-heading">Внимание!</h4>
                         <p>Если Вы планируете получить баллы в рамках НМО и удостоверение о повышении квалификации по выбранному курсу, Вам необходимо дополнительно зарегистрироваться на курс на
                             https://edu.rosminzdrav.ru/.</p>
@@ -31,10 +31,10 @@
                             <p>Текстовый поиск позволяет найти образовательное мероприятие при вводе полностью названия в строку поиска. Выберите справа дату 07.12.2020 и в графе напротив цикла нажмите на «Выбрать цикл» (курс числится как очный, бюджетный, с применением дистанционных технологий).</p>
                             <p>По вопросам получения удостоверения государственного образца о повышении квалификации по изученной теме обращаться umc-rnc@nmicrk.ru</p>
                         </div>
-                    </div>
+                    </div>-->
 
 
-                    <div class="row" style="margin-top: 30px;">
+                    <div class="row" style="margin-top: 15px;">
 
                         <div class="col-md-12">
                             <div class="card">
@@ -385,7 +385,7 @@
                                     </div>
 
                                     <div class="form-group required">
-                                        <label class="control-label" for='confirm'>На зачисление на курс и обработку персональных данных согласен</label>
+                                        <label class="control-label" for='confirm'>На зачисление на курс и <a target="_blank" href="{{ url('/privacy') }}">обработку персональных данных</a> согласен</label>
 
                                         <input id='confirm' type="checkbox" name='confirm'
                                                value="on" required>

@@ -53,11 +53,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
 
     <script>
+        var data = '{!! $questions->toJson() !!}';
+
         var app = new Vue({
             el: '#app',
             data: {
                 course_id: {{ $course->id }},
-                questions: JSON.parse('{!! $questions->toJson() !!}').sort(function (a, b) {
+                questions: JSON.parse(data).sort(function (a, b) {
                     return a.sort_id - b.sort_id
                 }),
                 message: ""

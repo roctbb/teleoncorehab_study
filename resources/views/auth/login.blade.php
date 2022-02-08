@@ -71,7 +71,7 @@
 <body>
 
 <div class="container">
-    <p align="center"><img class="logo" style="max-width: 60vw; width: 500px;" src="biglogo.png"/></p>
+    <p align="center"><img class="logo" style="max-width: 60vw; width: 500px;" src="biglogo.png?new"/></p>
     <form method="POST" action="{{ url('/login') }}" class="form-signin">
 
         {{ csrf_field() }}

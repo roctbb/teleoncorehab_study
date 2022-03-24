@@ -22,7 +22,7 @@
 
                 <div class="card-deck">
 
-                    @foreach($courses as $course)
+                    @foreach($courses->sortByDesc('id') as $course)
                         @if ($course->state == 'started')
 
                             <div class="card"
